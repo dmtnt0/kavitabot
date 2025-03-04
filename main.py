@@ -1,16 +1,11 @@
 """
 Appl Name: KavitaBot
-Version: v0.0.1
+Version: v0.1.1
 Status: Development
 Description: A Discord bot that uses Kavita API to allow for self generated email invites.
 License: MIT License
 Created: 02 March 2025
-
-Email: admin@dmtnt.co
-Author: Rhys F. Warrior
-Maintainer: Rhys F. Warrior
-
-Copyright: Copyright (c) 2025 Rhys F. Warrior
+Copyright: Copyright (c) 2025
 """
 
 import os
@@ -22,11 +17,15 @@ import discord.ext
 import discord.ext.commands
 from kavita import KavitaAPI
 
-
-
 # Environment Variables
-role_id = os.environ.get("DISCORD_ROLE_ID")
-chan_id = os.environ.get("DISCORD_CHAN_ID")
+if os.environ.get("DISCORD_ROLE_ID"):
+    role_id = os.environ.get("DISCORD_ROLE_ID")
+else:
+    role_id = 0
+if os.environ.get("DISCORD_CHAN_ID"):
+    chan_id = os.environ.get("DISCORD_CHAN_ID")
+else:
+    chan_id = 0
 
 # Discord - KavitaBot - "Intents" Variables
 intents = discord.Intents.default()
@@ -57,18 +56,21 @@ async def on_ready():
 async def invite(ctx: discord.Interaction, email: str):
     
     # Perform check for required user role
-    for role in ctx.user.roles:
-        if role_id:
-            if role.id == int(role_id):
-                has_role = True
+    if role_id == 0:
+            has_role = True
+    else:
+        for role in ctx.user.roles:
+            if role_id:
+                if role.id == int(role_id):
+                    has_role = True
+                else:
+                    has_role = False
             else:
                 has_role = False
-        else:
-            has_role = False
 
-    if (has_role and role_id) or not(has_role and role_id):
+    if has_role or role_id == 0:
 
-        if ctx.channel_id == int(chan_id):
+        if ctx.channel_id == int(chan_id) or chan_id == 0:
             
             if re.match(r"^\w+\@\w+\..*", email):
 
