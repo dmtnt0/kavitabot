@@ -13,7 +13,7 @@ Project KavitaBot: This project was born from Kavita not having any type of real
 ## **Bot Notes:**
 - The server ID requirement is to force an update in the event the bot is updated with new commands or .
 - Commands can be used by anyone and in any channel, however the bot will give an error message if the user doesn't have the specified role or makes a request from a non-specified channel.
-- Emails entered are checked for general formatting. This consists of looking for an ' @ ' followed by a ' . ' In preactice it's looking for something like "email@domain.com" however something like "user.name@sub.domain.com" will also work.
+- Emails entered are checked for general formatting. This consists of looking for an ' @ ' followed by a ' . ' In preactice it's looking for something like 'username@domain.com' however something like 'example.username@sub.domain.com' will also work.
 - Role restrictions are checked first.
 - Channel restrictions are checked only if role ID check passes or role ID is not present.
 - All messages can only be seen by the user that made them.
