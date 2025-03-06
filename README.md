@@ -23,5 +23,5 @@ Project KavitaBot: This project was born from Kavita not having any type of real
  - Request > No Role > Wrong Channel: "**[ERROR]** You do not have the required role."
  - Request > No Role > Correct Channel: "**[ERROR]** You do not have the required role."
  - Request > Has Role > Wrong Channel: "**[ERROR]** This bot only accepts commands in a specific channel."
- - Request > Has Role > Correct Channel: *\<dm is sent to user\>* - "Invitation email sent to: `<user email\>`" `<newline>x2` "**Registration URL:** `<Kavita invite URL>`"
+ - Request > Has Role > Correct Channel: *\<dm is sent to user\>* - "Invitation email sent to: `<user email>`" `<newline>x2` "**Registration URL:** `<Kavita invite URL>`"
  - Request > Has Role > Correct Channel > Invalid Email Address: "**[ERROR]** Invalid email address!" *\<newline\>* "**[INFO]** Please check your email and try again."
