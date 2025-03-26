@@ -33,6 +33,16 @@ class KavitaAPI:
         # Return base url and headers
         return host_address,headers
 
+    # Get all users
+    def users(url):
+        host_address,headers = KavitaAPI.auth(url)
+        full_url = host_address + "/api/Users?includePending=true"
+        body = {}
+        raw = requests.get(full_url, json=body, headers=headers)
+        response = raw.json()
+        
+        return response
+
     # Send invitation email
     def invite(url,email):
         host_address,headers = KavitaAPI.auth(url)
