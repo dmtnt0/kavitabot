@@ -104,6 +104,8 @@ async def invite(ctx: discord.Interaction, email: str):
             else:
                 in_chan = False
 
+        user_exists = False
+
         if in_chan:
             if re.match(r"^\w+\@\w+\..*", email):
 
